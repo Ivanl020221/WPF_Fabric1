@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b33fe81f74be43da89747b02da068d12" Name="Diagram1">
+        <EntityTypeShape EntityType="clothModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Заказ" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Заказные_изделия" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Изделия" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Изделия_созданные_заказчиками" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Окантовка" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Остатки_тканей" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Пользователь" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Пользовательская_фурнитура" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Пользовательские_ткани" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Поставки" Width="1.5" PointX="3.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Поставщик_ткани" Width="1.5" PointX="1.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Поставщик_Фурнитуры" Width="1.5" PointX="1.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Роль" Width="1.5" PointX="1.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Склад_ткани" Width="1.5" PointX="6" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Склад_фунитуры" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Спецификация" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Текущий_этап_выполнения" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Ткани" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Фурнитура" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothModel.Фурнитура_изделия" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="clothModel.FK_Заказ_Пользователь" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Заказ_Текущий_этап_выполнения" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Заказ_Ткани" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Заказ_Фурнитура" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Заказные_изделия_Заказ" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Заказные_изделия_Изделия" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Изделия_Спецификация" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Фурнитура_изделия_Изделия" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Остатки_тканей_Ткани" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Пользователь_Роль" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Поставки_Поставщик_ткани" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Поставки_Поставщик_Фурнитуры" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Склад_ткани_Поставки" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Склад_фунитуры_Поставки" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Склад_ткани_Ткани" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Склад_фунитуры_Фурнитура" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.FK_Фурнитура_изделия_Фурнитура" ManuallyRouted="false" />
+        <AssociationConnector Association="clothModel.Ткани_изделия" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
