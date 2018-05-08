@@ -31,28 +31,32 @@ namespace фабрика_на_WPF
             {
                 var a = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).Select(R => R.Роль);
                 var b = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).FirstOrDefault();
-                int aa = a.First();
-                var c = context.Роль.Where(s => s.ID == aa).First();
+              
+              
                 if (Логин_лог.Text  != "" && Пароль_лог.Password !="")
-                {
+                {  
+
                   if (a.Count() != 0)
-                  {
+                  { int aa = a.First();
+                    var c = context.Роль.Where(s => s.ID == aa).First();
+
                     Имя_в_инфобордере.Text = b.Имя;
                     Тип_пользователя_в_инфобордере.Text = c.Роль1;
+
+                        Рамка_для_страниц.Navigate(new Page1());
                         Кнопка_выхода.Visibility = Visibility.Visible;
+                        Бордер_вход_рег.Visibility = Visibility.Hidden;
                   }
-                        else
-                        {
-                        MessageBox.Show("Не правильный логин или пароль.");
-                        }
+                   else
+                   {
+                     MessageBox.Show("Не правильный логин или пароль.");
+                   }
                 }
                 else
                 {
                     MessageBox.Show("Заполните все поля.");
-                }
-              
+                }  
             }
-
         }
 
         private void регистрация(object sender, RoutedEventArgs e)
@@ -69,15 +73,44 @@ namespace фабрика_на_WPF
                         Роль = 1
                     };
                     context.Пользователь.Add(регистр);
-                    context.SaveChanges();
-                   // MessageBox.Show("Вы успешно зарегестрировались." + "Хотите войти?", "Вход");
+                    var aad = context.Пользователь.Where(l => l.Логин == логин_рег.Text).Select(R => R.Роль);
+                    if (aad.Count() == 0)
+                    {
+                        context.SaveChanges();
+                        MessageBoxResult result = MessageBox.Show("Вы успешно зарегестрировались. Хотите войти?", "Вход", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            Логин_лог.Text = логин_рег.Text;
+                            Пароль_лог.Password = пароль_рег.Password;
+                            var a = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).Select(R => R.Роль);
+                            int aa = a.First();
+                            var c = context.Роль.Where(s => s.ID == aa).First();
+                            var b = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).FirstOrDefault();
+                            Имя_в_инфобордере.Text = b.Имя;
+                            Тип_пользователя_в_инфобордере.Text = c.Роль1;
+                        }
+                    }
+                    else
+                        MessageBox.Show("Извините, такой пользователь уже существует");
+                    //MessageBoxResult result = MessageBox.Show("Вы успешно зарегестрировались. Хотите войти?", "Вход", MessageBoxButton.YesNo);
+                    //if (result == MessageBoxResult.Yes)
+                    //{
+                    //    Логин_лог.Text = логин_рег.Text;
+                    //    Пароль_лог.Password = пароль_рег.Password;
+                    //    var a = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).Select(R => R.Роль);
+                    //    int aa = a.First();
+                    //    var c = context.Роль.Where(s => s.ID == aa).First();
+                    //    var b = context.Пользователь.Where(l => l.Логин == Логин_лог.Text).Where(p => p.Пароль == Пароль_лог.Password).FirstOrDefault();
+                    //    Имя_в_инфобордере.Text = b.Имя;
+                    //    Тип_пользователя_в_инфобордере.Text = c.Роль1;
+                    //}
                 }
             }
             else
             {
-                 MessageBox.Show("Вы успешно зарегестрировались. Хотите войти?", "Вход", MessageBoxButton.YesNo);
+               
                 MessageBox.Show("Заполните все поля.");
-                
+               
             }
         }
         private void Выйти_из_аккаунта(object sender, RoutedEventArgs e)
